@@ -1,0 +1,484 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* General */
+
+body {
+  width: 800px;
+  min-width: 100%;
+  height: 1660px;
+  min-height: 100%;
+
+  /* padding-top: 50px; */
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+
+  background-color: silver;
+  font-family: "Poppins", sans-serif;
+}
+
+canvas {
+  /* display: block; */
+  background: gray;
+  z-index: -1;
+  position: absolute;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* pop the CAT */
+
+.cat-div {
+  /* border: 1px solid black; */
+  height: 80px;
+  width: 806px;
+  justify-content: flex-end;
+}
+
+.cat {
+  margin-top: 100px;
+  height: 80px;
+  width: 80px;
+  /* border: 1px solid blue; */
+}
+
+.hidden {
+  display: none;
+}
+
+/* Upper data fields */
+
+.main-container {
+  margin-top: 50px;
+  flex-direction: column;
+}
+
+.upper-data-field {
+  height: 100px;
+  width: 788px;
+  max-width: 100%;
+  justify-content: space-between;
+  background-color: #3c7ebd;
+  margin-bottom: 3px;
+}
+
+.budget-main-field {
+  margin-right: 50px;
+  justify-content: space-between;
+}
+
+.budget-text {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-left: 40px;
+}
+
+.budget-input {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+  background-color: transparent;
+
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+
+  height: 48px;
+  width: 100px;
+
+  margin: 0px 10px;
+  text-align: center;
+
+  font-size: 1.2rem;
+}
+
+.budget-input:focus {
+  outline: none;
+}
+
+.budget-input::placeholder {
+  color: rgba(255, 255, 255, 0.22);
+}
+
+/* hidding arrows in input field */
+.budget-input[type="number"]::-webkit-inner-spin-button,
+.budget-input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Right side, CURRENCIES */
+
+.currencies-outer {
+  position: relative;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-right: 45px;
+}
+
+.currencies {
+  /* border: 1px solid silver; */
+  height: 48px;
+  justify-content: space-between;
+}
+
+.to-currency {
+  justify-content: space-between;
+  font-size: 0.75rem;
+  position: absolute;
+  width: 100%;
+  top: -5px;
+  color: rgba(255, 255, 255, 0.22);
+  padding-left: 25px;
+  padding-right: 5px;
+  /* border: 1px solid teal; */
+}
+
+.cur {
+  padding-left: 5px;
+  width: 88px;
+  font-size: 1.2rem;
+  font-weight: 900;
+  margin-left: 20px;
+  /* border: 1px solid black; */
+  justify-content: space-between;
+}
+
+/* Container */
+
+.calendar {
+  flex-wrap: wrap;
+  height: 490px;
+}
+
+/* Left side */
+
+.left-side {
+  margin-right: 3px;
+  height: 100%;
+  width: 330px;
+  min-width: 330px;
+  background: #3c7ebd;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.current-day {
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 35px;
+  width: 100%;
+}
+
+.current-day-events {
+  height: 255px;
+  max-height: 100%;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.current-day-events-list {
+  margin-bottom: 20px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 170px;
+  height: 100px;
+  max-height: 100%;
+}
+
+.left-bottom {
+  flex-direction: column;
+}
+
+.total {
+  justify-content: flex-start;
+  height: 50px;
+  padding-left: 8px;
+  width: 120px;
+  border-radius: 3px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+.total-inner {
+  margin-left: 8px;
+  width: 100%;
+  height: 100%;
+  /* border: 3px solid rgba(255, 255, 255, 0.1); */
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.available-per-day {
+  width: 160px;
+  justify-content: flex-start;
+  margin-left: 10px;
+  padding-left: 8px;
+  /* background-color: teal; */
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.available-per-day-inner {
+  width: 100%;
+  height: 100%;
+  margin-left: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  padding-left: 3px;
+}
+
+.current-day-events ul {
+  list-style: none;
+}
+
+.spent-and-available {
+  height: 50px;
+
+  font-weight: 900;
+  font-size: 0.85rem;
+
+  width: 260px;
+  /* border: 1px solid green; */
+  margin-bottom: 20px;
+}
+
+.items-added {
+  min-width: 60px;
+  justify-content: flex-start;
+  /* background-color: teal; */
+}
+
+.current-day h1 {
+  font-size: 6rem;
+}
+
+.add-event-day {
+  width: 260px;
+  justify-content: space-between;
+}
+
+.add-event-day-field {
+  /* input */
+  color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  background: transparent;
+  height: 25px;
+  width: 50%;
+  font-size: 16px;
+}
+
+/* hidding arrows in input field */
+
+/* Firefox (not working for now)*/
+.add-event-day-field[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.add-event-day-field::-webkit-inner-spin-button,
+.add-event-day-field::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.add-event-day-field:focus {
+  outline: none;
+}
+
+.add-event-day-field::placeholder {
+  color: rgba(255, 255, 255, 0.22);
+}
+
+.fa-plus-circle,
+.fa-minus-circle {
+  height: 20px;
+  width: 50px;
+  border-radius: 3px;
+  /* margin-left: 10px; */
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.fa-plus-circle:before {
+  content: "+";
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.fa-minus-circle:before {
+  content: "-";
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Right side */
+
+.right-side {
+  width: 455px;
+  min-width: 455px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0px 30px;
+  height: 100%;
+  background: white;
+}
+
+/* year + months + weeks div */
+
+.right-side-top {
+  width: 100%;
+  /* min-width: 100%; */
+  flex-direction: column;
+  padding: 0px 20px;
+}
+
+ul li {
+  list-style: none;
+}
+
+/* year */
+
+.text-right {
+  padding-top: 15px;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.calendar-current-year {
+  cursor: pointer;
+}
+
+.calendar-change-year {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.calendar-change-year-slider {
+  margin: 15px 0px 10px 0px;
+  color: silver;
+  width: 90px;
+  justify-content: space-between;
+}
+
+.fa-caret-left:before {
+  content: "<";
+  cursor: pointer;
+}
+
+.fa-caret-right:after {
+  content: ">";
+  cursor: pointer;
+}
+
+/* months + weeks div */
+
+.right-side-top-left {
+  width: 100%;
+  flex-direction: column;
+}
+
+/* months */
+
+.calendar-month-list {
+  width: 100%;
+}
+
+.calendar-month {
+  width: 100%;
+  justify-content: space-between;
+  color: grey;
+}
+
+.calendar-month li {
+  cursor: pointer;
+  font-size: 0.68rem;
+}
+
+/* weeks */
+
+.calendar-week-list {
+  width: 105%;
+  margin-top: 12px;
+  /* border-bottom: 1px solid silver; */
+  background-color: rgba(192, 192, 192, 0.5);
+  padding: 5px 10px;
+}
+
+.calendar-week {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.calendar-week li {
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+/* days */
+
+.calendar-day-list {
+  padding-bottom: 20px;
+}
+
+.calendar-day {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.calendar .calendar-day li.event-day:before {
+  position: relative;
+  content: " ";
+  border-radius: 50%;
+  width: 3px;
+  height: 3px;
+  top: -15px;
+  right: -24px;
+  background: #c700007e;
+}
+
+.calendar-day li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  margin: 10.5px;
+  border-radius: 50%;
+  list-style-type: none;
+}
+
+.calendar-day li:hover {
+  background-color: silver;
+  transition: 200ms ease-in-out;
+}
+
+.active {
+  font-weight: 600;
+  border-bottom: 2px solid silver;
+}
+
+.another-month {
+  color: #ccc;
+}
+
+.selected-day {
+  background-color: silver;
+  color: white;
+}
+.active-day {
+  background-color: #3c7ebd;
+  color: white;
+}

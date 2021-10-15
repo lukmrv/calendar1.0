@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v1.0</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <div class="cat-div flex">
+      <img
+        src="PopCat/popCatOne.png"
+        class="cat pop-cat-one"
+        alt="pop-cat-one"
+      />
+      <img
+        src="PopCat/popCatTwo.png"
+        class="cat pop-cat-two hidden"
+        alt="pop-cat-two"
+      />
+      <audio src="PopCat/popCatOne.mp3" class="cat-sound-one"></audio>
+      <audio src="PopCat/popCatTwo.mp3" class="cat-sound-two"></audio>
+    </div>
+
+    <div class="main-container flex" id="calendar">
+      <div class="upper-data-field flex">
+        marzaOneDiv
+        <div class="budget-main-field flex">
+          <span class="budget-text">Budget :</span>
+          <input type="number" class="budget-input" placeholder="Amount" />
+        </div>
+
+        <div class="currencies-outer flex">
+          <div class="to-currency flex">
+            <span>to PLN</span>
+            <span class="update-time">rates updated at&#160;&#160;</span>
+          </div>
+
+          <div class="currencies flex">
+            <span class="eur cur flex">EUR<span class="eur-in"></span></span>
+            <span class="usd cur flex">USD<span class="usd-in"></span></span>
+            <span class="chf cur flex">CHF<span class="chf-in"></span></span>
+            <span class="gbp cur flex">GBP<span class="gbp-in"></span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="calendar disable-selection flex" id="calendar">
+        <div class="left-side flex">
+          <div class="current-day flex">
+            <h1 class="calendar-left-side-day"></h1>
+            <div class="calendar-left-side-day-of-week"></div>
+          </div>
+
+          <div class="current-day-events flex">
+            <ul class="current-day-events-list flex"></ul>
+
+            <div class="left-bottom flex">
+              <div class="spent-and-available flex">
+                <div class="total flex">
+                  Total:
+                  <div class="total-inner flex"></div>
+                </div>
+                <div class="available-per-day flex">
+                  Available:
+                  <div class="available-per-day-inner flex"></div>
+                </div>
+              </div>
+
+              <div class="add-event-day flex">
+                <input
+                  type="number"
+                  class="add-event-day-field"
+                  placeholder="Add spendings"
+                />
+                <span
+                  class="
+                    fa fa-plus-circle
+                    cursor-pointer
+                    add-event-day-field-btn
+                    flex
+                  "
+                ></span>
+                <span
+                  class="
+                    fa fa-minus-circle
+                    cursor-pointer
+                    remove-event-day-field-btn
+                    flex
+                  "
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-side flex">
+          <div class="right-side-top flex">
+            <div class="text-right calendar-change-year flex">
+              <div class="calendar-change-year-slider flex">
+                <span
+                  class="
+                    fa fa-caret-left
+                    cursor-pointer
+                    calendar-change-year-slider-prev
+                  "
+                ></span>
+                <span class="calendar-current-year"></span>
+                <span
+                  class="
+                    fa fa-caret-right
+                    cursor-pointer
+                    calendar-change-year-slider-next
+                  "
+                ></span>
+              </div>
+            </div>
+
+            <div class="right-side-top-left flex">
+              <div class="calendar-month-list flex">
+                <ul class="calendar-month flex"></ul>
+              </div>
+
+              <div class="calendar-week-list flex">
+                <ul class="calendar-week flex"></ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="calendar-day-list flex">
+            <ul class="calendar-day flex"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <canvas></canvas> -->
+
+    <script src="exchange.js"></script>
+    <script src="app.js"></script>
+    <script src="cat.js"></script>
+    <!-- <script src="background.js"></script> -->
+  </body>
+</html>
