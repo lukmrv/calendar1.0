@@ -5,7 +5,7 @@ const app = express();
 require('dotenv').config();
 
 // Host / Local Port
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3002
 app.listen(port, () => console.log(`Starting server at ${port}`));
 
 
